@@ -1,5 +1,5 @@
 /*
-  # Insert Default Data for StarNetX
+  # Insert Default Data for Starline Networks
 
   1. Default Plans
     - Quick Browse (3 hours)
@@ -8,8 +8,8 @@
     - Monthly Premium (720 hours)
 
   2. Default Locations
-    - StarNetX 1
-    - StarNetX 2
+    - Starline Networks 1
+    - Starline Networks 2
 */
 
 -- Insert default plans
@@ -22,6 +22,6 @@ ON CONFLICT DO NOTHING;
 
 -- Insert default locations
 INSERT INTO locations (name, wifi_name, is_active) VALUES
-  ('StarNetX 1', 'StarNetX 1', true),
-  ('StarNetX 2', 'StarNetX 2', true)
+  ('Starline Networks 1', 'Starline Networks 1', true),
+  ('Starline Networks 2', 'Starline Networks 2', true)
 ON CONFLICT DO NOTHING;

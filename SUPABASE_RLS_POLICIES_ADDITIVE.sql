@@ -1,4 +1,4 @@
--- ADDITIVE RLS POLICY FIX FOR STARNETX
+-- ADDITIVE RLS POLICY FIX FOR STARLINE NETWORKS
 -- This only ADDS or UPDATES policies without removing existing ones
 -- Safe to run multiple times - uses CREATE OR REPLACE
 

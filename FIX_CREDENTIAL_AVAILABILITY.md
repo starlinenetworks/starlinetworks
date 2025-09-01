@@ -13,7 +13,7 @@ Three plans don't have credentials available in your location:
 2. **Weekly** plan
 3. **Monthly Plan**
 
-This means users can't purchase these plans at the "StarNetX 1" location.
+This means users can't purchase these plans at the "Starline Networks 1" location.
 
 ## How to Fix
 
@@ -23,7 +23,7 @@ This means users can't purchase these plans at the "StarNetX 1" location.
 3. Click **"Add Credential"**
 4. For each missing plan:
    - Select the plan (Ultra-Fast Priority, Weekly, or Monthly)
-   - Select location (StarNetX 1)
+   - Select location (Starline Networks 1)
    - Enter username/password
    - Set status to "Available"
    - Click Save
@@ -34,7 +34,7 @@ Run this in Supabase SQL editor:
 ```sql
 -- First, get the IDs we need
 SELECT id, name FROM plans WHERE name IN ('Ultra-Fast Priority', 'Weekly', 'Monthly Plan');
-SELECT id, name FROM locations WHERE name = 'StarNetX 1';
+SELECT id, name FROM locations WHERE name = 'Starline Networks 1';
 
 -- Then add credentials (replace the IDs with actual values from above)
 -- Example format:
@@ -58,7 +58,7 @@ DECLARE
     i INTEGER;
 BEGIN
     -- Get location ID
-    SELECT id INTO loc_id FROM locations WHERE name = 'StarNetX 1' LIMIT 1;
+    SELECT id INTO loc_id FROM locations WHERE name = 'Starline Networks 1' LIMIT 1;
     
     -- For each plan that needs credentials
     FOR plan_rec IN 

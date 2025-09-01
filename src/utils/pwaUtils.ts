@@ -19,12 +19,12 @@ export const clearPWACache = async () => {
   }
   
   // Clear localStorage except for remember me data
-  const rememberMeData = localStorage.getItem('starnetx_auth_data');
+  const rememberMeData = localStorage.getItem('starline_auth_data');
   const keysToRemove: string[] = [];
   
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key && key !== 'starnetx_auth_data') {
+    if (key && key !== 'starline_auth_data') {
       keysToRemove.push(key);
     }
   }
@@ -33,7 +33,7 @@ export const clearPWACache = async () => {
   
   // Restore remember me data if it existed
   if (rememberMeData) {
-    localStorage.setItem('starnetx_auth_data', rememberMeData);
+    localStorage.setItem('starline_auth_data', rememberMeData);
   }
   
   // Clear sessionStorage

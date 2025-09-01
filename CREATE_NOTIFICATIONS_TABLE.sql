@@ -1,4 +1,4 @@
--- Create Notifications Table for StarNetX
+-- Create Notifications Table for Starline Networks
 -- Run this in your Supabase SQL Editor
 
 -- ============================================
@@ -115,7 +115,7 @@ INSERT INTO admin_notifications (
   target_audience,
   is_active
 ) VALUES (
-  'Welcome to StarNetX!',
+  'Welcome to Starline Networks!',
   'Thank you for joining our network. Enjoy fast and reliable internet service.',
   'success',
   1,

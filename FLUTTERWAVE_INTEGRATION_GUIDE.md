@@ -1,4 +1,4 @@
-# Flutterwave Integration Guide for StarNetX
+# Flutterwave Integration Guide for Starline Networks
 
 ## Overview
 Your app uses Flutterwave for payment processing and virtual account creation. Here's a comprehensive guide on how it works and how to manage it.
