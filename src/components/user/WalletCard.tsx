@@ -45,10 +45,8 @@ export const WalletCard: React.FC<WalletCardProps> = ({ onTopUpClick }) => {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm mx-4 overflow-hidden relative z-10">
-      {/* Wallet Label - Changed from SAVINGS WALLET to WALLET */}
-      <div className="bg-[#0066FF] text-white text-center py-2 text-xs font-semibold tracking-wider">
-        WALLET
-      </div>
+      {/* White top bar instead of text label */}
+      <div className="bg-white h-2"></div>
       
       <div className="p-6">
         {/* Available Balance Section */}

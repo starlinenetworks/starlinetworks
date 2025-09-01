@@ -11,7 +11,7 @@ import { BottomNavigation } from './BottomNavigation';
 import { ReferralPage } from './ReferralPage';
 import { SettingsPage } from './SettingsPage';
 import { NotificationBanner } from './NotificationBanner';
-import { Bell, ChevronDown, LogOut, Menu, User } from 'lucide-react';
+import { Bell, ChevronDown, LogOut, User } from 'lucide-react';
 
 type ActivePage = 'home' | 'plans' | 'referrals' | 'settings' | 'virtual-account';
 
@@ -78,9 +78,7 @@ export const UserDashboard: React.FC = () => {
           
           {/* Top Navigation */}
           <div className="flex items-center justify-between mb-6">
-            <button className="p-2">
-              <Menu className="text-white w-6 h-6" />
-            </button>
+            <h1 className="text-white text-xl font-bold">StarNetX</h1>
             <div className="flex items-center gap-2">
               <span className="text-white text-sm font-medium">Hello, {user?.email?.split('@')[0] || 'User'}</span>
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

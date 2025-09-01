@@ -14,9 +14,9 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
 }) => {
   const navItems = [
     { id: 'home' as ActivePage, icon: Home, label: 'Home' },
-    { id: 'plans' as ActivePage, icon: Grid3x3, label: 'Services' },
-    { id: 'referrals' as ActivePage, icon: BarChart3, label: 'Activity' },
-    { id: 'settings' as ActivePage, icon: Settings, label: 'More' },
+    { id: 'plans' as ActivePage, icon: Grid3x3, label: 'Plans' },
+    { id: 'referrals' as ActivePage, icon: Users, label: 'Referral' },
+    { id: 'settings' as ActivePage, icon: Settings, label: 'Settings' },
   ];
 
   return (
