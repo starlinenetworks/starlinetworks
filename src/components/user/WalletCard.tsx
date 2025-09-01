@@ -15,7 +15,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({ onTopUpClick }) => {
   // Show skeleton while user data is loading
   if (!user && authUser) {
     return (
-      <div className="bg-white rounded-2xl p-6 shadow-sm mx-4 animate-pulse">
+      <div className="bg-white rounded-2xl p-6 shadow-sm mx-4 animate-pulse relative z-10">
         <div className="flex items-center justify-between mb-2">
           <div className="h-4 bg-gray-200 rounded w-24"></div>
           <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
@@ -44,10 +44,10 @@ export const WalletCard: React.FC<WalletCardProps> = ({ onTopUpClick }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm mx-4 overflow-hidden">
-      {/* Savings Label */}
+    <div className="bg-white rounded-2xl shadow-sm mx-4 overflow-hidden relative z-10">
+      {/* Wallet Label - Changed from SAVINGS WALLET to WALLET */}
       <div className="bg-[#0066FF] text-white text-center py-2 text-xs font-semibold tracking-wider">
-        SAVINGS WALLET
+        WALLET
       </div>
       
       <div className="p-6">

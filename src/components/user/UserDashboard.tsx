@@ -110,7 +110,7 @@ export const UserDashboard: React.FC = () => {
         </div>
         
         <main className="pb-24 min-h-[calc(100vh-200px)]">
-          <div className="relative -mt-8">
+          <div className="relative -mt-8 z-10">
             {renderContent()}
           </div>
         </main>
