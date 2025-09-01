@@ -11,7 +11,7 @@ import { BottomNavigation } from './BottomNavigation';
 import { ReferralPage } from './ReferralPage';
 import { SettingsPage } from './SettingsPage';
 import { NotificationBanner } from './NotificationBanner';
-import { Bell, ChevronDown, LogOut } from 'lucide-react';
+import { Bell, ChevronDown, LogOut, Menu, User } from 'lucide-react';
 
 type ActivePage = 'home' | 'plans' | 'referrals' | 'settings' | 'virtual-account';
 
@@ -69,70 +69,39 @@ export const UserDashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400">
-      <div className="max-w-md mx-auto bg-white min-h-screen relative">
+    <div className="min-h-screen bg-[#0066FF]">
+      <div className="max-w-md mx-auto bg-gray-50 min-h-screen relative">
         {/* Header */}
-        <div className="bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 px-3 sm:px-4 pt-10 sm:pt-12 pb-6 sm:pb-8 relative overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-white/5 rounded-b-3xl"></div>
+        <div className="bg-[#0066FF] px-4 pt-12 pb-20 relative">
+          {/* Status Bar Style Top */}
+          <div className="absolute top-0 left-0 right-0 h-6 bg-black/10"></div>
           
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-2xl"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-2xl"></div>
-          
-          <div className="flex items-center justify-between mb-6 sm:mb-8 relative z-10">
-            <div className="flex items-center justify-between w-full">
-              <h1 className="text-white text-xl min-[400px]:text-2xl sm:text-3xl font-black tracking-tight drop-shadow-lg">StarNetX</h1>
-              <div className="flex items-center gap-2 sm:gap-3">
-                <button
-                  onClick={handleRefresh}
-                  disabled={isRefreshing}
-                  className="p-2 sm:p-3 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl text-white/90 hover:text-white hover:bg-white/30 transition-all duration-200 disabled:opacity-50 border border-white/20"
-                  title="Refresh"
-                >
-                  <svg 
-                    className={`w-4 h-4 sm:w-5 sm:h-5 ${isRefreshing ? 'animate-spin' : ''}`} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </button>
-                <button
-                  onClick={logout}
-                  className="flex items-center gap-1 sm:gap-1.5 px-2 min-[400px]:px-3 py-1.5 sm:py-2 bg-gradient-to-br from-red-500 to-red-600 rounded-xl sm:rounded-2xl text-white font-semibold shadow-lg border border-white/30 hover:from-red-600 hover:to-red-700 transition-all duration-200 hover:scale-105 active:scale-95"
-                  title="Logout"
-                >
-                  <LogOut className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="text-xs sm:text-sm">Logout</span>
-                </button>
+          {/* Top Navigation */}
+          <div className="flex items-center justify-between mb-6">
+            <button className="p-2">
+              <Menu className="text-white w-6 h-6" />
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-white text-sm font-medium">Hello, {user?.email?.split('@')[0] || 'User'}</span>
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <User className="text-white w-6 h-6" />
               </div>
             </div>
-          </div>
-          
-          <div className="mb-4 sm:mb-6 relative z-10">
-            <h2 className="text-white text-lg min-[400px]:text-xl sm:text-2xl font-bold mb-1 sm:mb-2 tracking-tight drop-shadow-lg truncate">
-              Hi {user?.email?.split('@')[0] || 'User'},
-            </h2>
-            <p className="text-white/90 text-sm min-[400px]:text-base sm:text-lg font-medium">
-              this is your recent usage
-            </p>
           </div>
 
           {/* Network Status Indicator */}
           {(!isOnline || isSlow) && (
-            <div className="mb-4 p-4 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 relative z-10">
-              <div className="flex items-center gap-3 text-white text-sm font-medium">
+            <div className="absolute top-16 left-4 right-4 p-3 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg z-20">
+              <div className="flex items-center gap-2 text-gray-700 text-xs font-medium">
                 {!isOnline ? (
                   <>
-                    <div className="w-3 h-3 bg-red-400 rounded-full animate-pulse shadow-lg"></div>
-                    <span>You're offline. Some features may not work.</span>
+                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                    <span>Offline Mode</span>
                   </>
                 ) : (
                   <>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse shadow-lg"></div>
-                    <span>Slow connection detected. Please be patient.</span>
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <span>Slow Connection</span>
                   </>
                 )}
               </div>
@@ -140,11 +109,9 @@ export const UserDashboard: React.FC = () => {
           )}
         </div>
         
-        <main className="pb-40 min-h-[calc(100vh-200px)] max-[380px]:pb-36 max-[360px]:pb-32 max-[350px]:pb-28">
-          <div className="px-4 -mt-6 relative">
-            <div className="min-h-[calc(100vh-300px)] max-[380px]:min-h-[calc(100vh-280px)] max-[360px]:min-h-[calc(100vh-260px)] max-[350px]:min-h-[calc(100vh-240px)]">
-              {renderContent()}
-            </div>
+        <main className="pb-24 min-h-[calc(100vh-200px)]">
+          <div className="relative -mt-8">
+            {renderContent()}
           </div>
         </main>
         <BottomNavigation activePage={activePage} onPageChange={setActivePage} />
