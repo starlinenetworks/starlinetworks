@@ -6,13 +6,38 @@
  */
 
 import { createClient } from '@supabase/supabase-js'
-import dotenv from 'dotenv'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-// Load environment variables
-dotenv.config()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-const supabaseUrl = process.env.VITE_SUPABASE_URL
-const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY
+// Load environment variables from .env file
+function loadEnvFile() {
+  const envPath = path.join(__dirname, '.env')
+  if (!fs.existsSync(envPath)) {
+    console.error('❌ .env file not found!')
+    process.exit(1)
+  }
+  
+  const envContent = fs.readFileSync(envPath, 'utf8')
+  const envVars = {}
+  
+  envContent.split('\n').forEach(line => {
+    const [key, ...valueParts] = line.split('=')
+    if (key && valueParts.length > 0) {
+      envVars[key.trim()] = valueParts.join('=').trim()
+    }
+  })
+  
+  return envVars
+}
+
+const envVars = loadEnvFile()
+
+const supabaseUrl = envVars.VITE_SUPABASE_URL
+const supabaseAnonKey = envVars.VITE_SUPABASE_ANON_KEY
 
 console.log('🔍 Testing Supabase Connection...')
 console.log('=====================================')
