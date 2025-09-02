@@ -78,7 +78,7 @@ export const UserDashboard: React.FC = () => {
           
           {/* Top Navigation */}
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-white text-xl font-bold">Starline Networks</h1>
+            <h1 className="text-white text-xl font-bold">StarNetX</h1>
             <div className="flex items-center gap-2">
               <span className="text-white text-sm font-medium">Hello, {user?.email?.split('@')[0] || 'User'}</span>
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

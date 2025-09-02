@@ -14,7 +14,7 @@ interface AuthFormProps {
 const APKDownloadSection = () => {
   const handleDownload = () => {
     // Updated APK download link
-    const apkUrl = "https://xgvxtnvdxqqeehjrvkwr.supabase.co/storage/v1/object/public/androidapk/StarlineNetworks.apk";
+    const apkUrl = "https://xgvxtnvdxqqeehjrvkwr.supabase.co/storage/v1/object/public/androidapk/StarnetX.apk";
     window.open(apkUrl, '_blank');
   };
 
@@ -148,7 +148,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ isAdmin = false }) => {
               <Wifi className="text-white" size={32} />
             </div>
             <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">
-              {isAdmin ? 'Admin' : 'Starline Networks'}
+              {isAdmin ? 'Admin' : 'StarNetX'}
             </h1>
             <p className="text-white/80 text-lg">
               {isAdmin ? 'Admin Dashboard Access' : (isLogin ? 'Welcome back!' : 'Create your account')}
