@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Mobile-friendly improvements */
+@layer base {
+  /* Ensure proper touch behavior on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improve input appearance on mobile */
+  input, button, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Better focus states for mobile */
+  input:focus, button:focus, textarea:focus, select:focus {
+    outline: none;
+  }
+  
+  /* Ensure proper font rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer components {
+  /* Mobile-optimized button styles */
+  .btn-mobile {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Mobile-optimized input styles */
+  .input-mobile {
+    @apply min-h-[56px];
+  }
+}
