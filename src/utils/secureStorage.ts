@@ -2,11 +2,11 @@
 // Note: This is basic obfuscation, not true encryption
 // For production, consider using Web Crypto API or a proper encryption library
 
-const STORAGE_KEY = 'starnetx_auth_data';
+const STORAGE_KEY = 'starline_auth_data';
 
 // Simple XOR cipher for basic obfuscation
 const obfuscate = (text: string): string => {
-  const key = 'StarNetX2024SecureKey';
+  const key = 'StarlineNetworks2024SecureKey';
   let result = '';
   for (let i = 0; i < text.length; i++) {
     result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
@@ -16,7 +16,7 @@ const obfuscate = (text: string): string => {
 
 const deobfuscate = (encoded: string): string => {
   try {
-    const key = 'StarNetX2024SecureKey';
+    const key = 'StarlineNetworks2024SecureKey';
     const text = atob(encoded); // Base64 decode
     let result = '';
     for (let i = 0; i < text.length; i++) {

@@ -1,5 +1,5 @@
-// Service Worker for StarNetX PWA
-const CACHE_NAME = 'starnetx-v1';
+// Service Worker for Starline Networks PWA
+const CACHE_NAME = 'starline-networks-v1';
 const urlsToCache = [
   '/',
   '/index.html',

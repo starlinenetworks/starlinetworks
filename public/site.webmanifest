@@ -1,7 +1,7 @@
 {
-  "name": "StarNetX - Premium Wireless Internet Service Provider",
-  "short_name": "StarNetX",
-  "description": "Get high-speed wireless internet with StarNetX. Advanced satellite technology, reliable connectivity, and excellent customer support. Available for homes and businesses.",
+  "name": "Starline Networks - Premium Wireless Internet Service Provider",
+  "short_name": "Starline Networks",
+  "description": "Get high-speed wireless internet with Starline Networks. Advanced satellite technology, reliable connectivity, and excellent customer support. Available for homes and businesses.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1e40af",
@@ -12,7 +12,7 @@
   "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
-      "src": "/starnetx-logo.svg",
+      "src": "/starline-logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -50,7 +50,7 @@
       "url": "/plans",
       "icons": [
         {
-          "src": "/starnetx-logo.svg",
+          "src": "/starline-logo.svg",
           "sizes": "96x96"
         }
       ]
@@ -62,7 +62,7 @@
       "url": "/dashboard",
       "icons": [
         {
-          "src": "/starnetx-logo.svg",
+          "src": "/starline-logo.svg",
           "sizes": "96x96"
         }
       ]
