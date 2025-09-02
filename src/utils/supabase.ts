@@ -12,7 +12,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     persistSession: true, // Enable session persistence
     autoRefreshToken: true, // Enable auto-refresh
     detectSessionInUrl: true,
-    storageKey: 'sb-starnetx-auth-token', // Use standard Supabase prefix
+    storageKey: 'sb-starline-auth-token', // Use standard Supabase prefix
     storage: {
       // Use default localStorage with minimal interference
       getItem: (key: string) => {
@@ -33,7 +33,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   },
   global: {
     headers: {
-      'X-Client-Info': 'starnetx-pwa',
+      'X-Client-Info': 'starline-networks-pwa',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
       'Pragma': 'no-cache'
     },

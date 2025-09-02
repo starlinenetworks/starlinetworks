@@ -1,5 +1,5 @@
 /*
-  # Initial Schema for StarNetX Internet Provider App
+  # Initial Schema for Starline Networks Internet Provider App
 
   1. New Tables
     - `profiles`

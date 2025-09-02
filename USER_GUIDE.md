@@ -1,11 +1,11 @@
-# 📚 StarNetX User Guide - Complete Step-by-Step Usage
+# 📚 Starline Networks User Guide - Complete Step-by-Step Usage
 
 **Website:** [https://starnetx.ng](https://starnetx.ng)  
 **Platform:** Web Application (Progressive Web App)  
 
 ---
 
-## 🚀 **Getting Started with StarNetX**
+## 🚀 **Getting Started with Starline Networks**
 
 ### **Step 1: Access the Platform**
 1. Open your web browser (Chrome, Firefox, Safari, Edge)
@@ -125,7 +125,7 @@
 
 ### **Step 15: Maximize Referral Earnings**
 1. **Social Media**: Share your referral link on social platforms
-2. **Word of Mouth**: Tell friends about StarNetX
+2. **Word of Mouth**: Tell friends about Starline Networks
 3. **Business Networks**: Share with colleagues and business contacts
 4. **Community Groups**: Post in local community forums
 
@@ -258,4 +258,4 @@
 **Need Help?** Contact us at binahinnovationtech@gmail.com  
 **Website**: [https://starnetx.ng](https://starnetx.ng)  
 
-**StarNetX** - Your Gateway to High-Speed Internet! 🌟📡
+**Starline Networks** - Your Gateway to High-Speed Internet! 🌟📡

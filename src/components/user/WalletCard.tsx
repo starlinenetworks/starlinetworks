@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../ui/Button';
-import { CreditCard, TrendingUp } from 'lucide-react';
+import { Eye, EyeOff, Wallet, ArrowRight, Copy, CheckCircle } from 'lucide-react';
 
 interface WalletCardProps {
   onTopUpClick?: () => void;
@@ -9,21 +9,19 @@ interface WalletCardProps {
 
 export const WalletCard: React.FC<WalletCardProps> = ({ onTopUpClick }) => {
   const { user, authUser } = useAuth();
+  const [showBalance, setShowBalance] = React.useState(true);
+  const [copied, setCopied] = React.useState(false);
 
   // Show skeleton while user data is loading
   if (!user && authUser) {
     return (
-      <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-gray-100/50 mb-6 animate-pulse">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gray-200 rounded-2xl"></div>
-            <div>
-              <div className="h-4 bg-gray-200 rounded w-20 mb-3"></div>
-              <div className="h-8 bg-gray-200 rounded w-32"></div>
-            </div>
-          </div>
-          <div className="w-24 h-10 bg-gray-200 rounded-2xl"></div>
+      <div className="bg-white rounded-2xl p-6 shadow-sm mx-4 animate-pulse relative z-10">
+        <div className="flex items-center justify-between mb-2">
+          <div className="h-4 bg-gray-200 rounded w-24"></div>
+          <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
         </div>
+        <div className="h-8 bg-gray-200 rounded w-40 mb-4"></div>
+        <div className="h-4 bg-gray-200 rounded w-32"></div>
       </div>
     );
   }
@@ -33,35 +31,135 @@ export const WalletCard: React.FC<WalletCardProps> = ({ onTopUpClick }) => {
     return null;
   }
 
-  return (
-    <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl mb-6 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full"></div>
-        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white rounded-full"></div>
-      </div>
+  const balance = user?.walletBalance || 0;
+  const hasVirtualAccount = user?.virtualAccountNumber && user?.virtualAccountBankName;
+  const accountNumber = user?.virtualAccountNumber || null;
 
-      <div className="relative flex flex-col min-[400px]:flex-row items-start min-[400px]:items-center justify-between gap-4">
-        <div className="flex items-center gap-3 sm:gap-4">
-          <div className="w-10 h-10 min-[400px]:w-12 min-[400px]:h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-            <CreditCard className="text-white" size={20} />
+  const handleCopyAccount = () => {
+    if (accountNumber) {
+      navigator.clipboard.writeText(accountNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-2xl shadow-sm mx-4 overflow-hidden relative z-10">
+      {/* White top bar instead of text label */}
+      <div className="bg-white h-2"></div>
+      
+      <div className="p-6">
+        {/* Available Balance Section */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-gray-500 text-sm">Available Balance</span>
+            <button 
+              onClick={() => setShowBalance(!showBalance)}
+              className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              {showBalance ? (
+                <Eye className="w-5 h-5 text-gray-400" />
+              ) : (
+                <EyeOff className="w-5 h-5 text-gray-400" />
+              )}
+            </button>
           </div>
-          <div className="min-w-0">
-            <p className="text-white/80 text-xs sm:text-sm font-medium mb-1 sm:mb-2">Balance</p>
-            <p className="text-lg min-[360px]:text-xl min-[400px]:text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm break-all">
-              ₦{user?.walletBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || '0.00'}
-            </p>
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-gray-900">₦</span>
+            <span className="text-3xl font-bold text-gray-900">
+              {showBalance 
+                ? balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                : '***,***.**'
+              }
+            </span>
           </div>
         </div>
 
-        <Button
-          onClick={onTopUpClick}
-          variant="secondary"
-          className="w-full min-[400px]:w-auto !bg-white hover:!bg-white !text-gray-900 font-black px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 text-sm sm:text-base border-2 border-white/50"
-        >
-          <TrendingUp className="mr-1.5 sm:mr-2" size={16} />
-          <span className="uppercase tracking-wide">Top Up +</span>
-        </Button>
+        {/* Account Number or Create Wallet Prompt */}
+        {hasVirtualAccount ? (
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm text-gray-500">Account Number</span>
+              <span className="text-xs text-gray-400">{user.virtualAccountBankName}</span>
+            </div>
+            <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-3">
+              <span className="font-mono font-semibold text-gray-900 text-lg flex-1">
+                {accountNumber}
+              </span>
+              <button 
+                onClick={handleCopyAccount}
+                className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
+                title="Copy account number"
+              >
+                {copied ? (
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                ) : (
+                  <Copy className="w-4 h-4 text-[#0066FF]" />
+                )}
+              </button>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              Fund this account to top up your wallet balance
+            </p>
+          </div>
+        ) : (
+          <div className="mb-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Wallet className="w-5 h-5 text-orange-600" />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                  No Virtual Account Yet
+                </h4>
+                <p className="text-xs text-gray-600 mb-3">
+                  Create a virtual account to easily fund your wallet and enjoy seamless transactions.
+                </p>
+                <button
+                  onClick={onTopUpClick}
+                  className="flex items-center gap-2 text-[#0066FF] text-sm font-medium hover:underline"
+                >
+                  Create Virtual Account
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Upgrade Account Card */}
+      <div className="mx-4 mb-4 p-4 bg-gradient-to-r from-[#0066FF] to-blue-600 rounded-xl">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              {hasVirtualAccount ? (
+                <>
+                  <p className="text-white font-semibold text-sm">Quick Top Up</p>
+                  <p className="text-white/80 text-xs">Fund your wallet instantly</p>
+                </>
+              ) : (
+                <>
+                  <p className="text-white font-semibold text-sm">Upgrade Account</p>
+                  <p className="text-white/80 text-xs">Create a virtual account to enjoy higher limits</p>
+                </>
+              )}
+            </div>
+          </div>
+          <button 
+            onClick={onTopUpClick}
+            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+          >
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

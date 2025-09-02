@@ -1,6 +1,6 @@
-# 🌟 StarNetX Internet Service Platform
+# 🌟 Starline Networks Internet Service Platform
 
-A comprehensive internet service management platform built with React, TypeScript, and Supabase. StarNetX provides high-speed internet services with user management, plan management, payment processing, and admin controls.
+A comprehensive internet service management platform built with React, TypeScript, and Supabase. Starline Networks provides high-speed internet services with user management, plan management, payment processing, and admin controls.
 
 ## ✨ Features
 
@@ -208,4 +208,4 @@ For support and questions:
 
 ---
 
-**StarNetX Internet Service Platform** - Empowering high-speed internet connectivity with modern technology! 🚀
+**Starline Networks Internet Service Platform** - Empowering high-speed internet connectivity with modern technology! 🚀

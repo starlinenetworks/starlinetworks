@@ -1,6 +1,6 @@
-# 🚀 StarNetX App Launch Information
+# 🚀 Starline Networks App Launch Information
 
-## 🌟 **StarNetX Internet Service Platform** - Now Live!
+## 🌟 **Starline Networks Internet Service Platform** - Now Live!
 
 **Website:** [https://starnetx.ng](https://starnetx.ng)  
 **Launch Date:** January 2025  
@@ -9,9 +9,9 @@
 
 ---
 
-## 🎯 **What is StarNetX?**
+## 🎯 **What is Starline Networks?**
 
-StarNetX is a revolutionary internet service platform that provides high-speed WiFi connectivity through multiple strategic locations. Our platform combines cutting-edge technology with user-friendly interfaces to deliver seamless internet experiences for both individual users and businesses.
+Starline Networks is a revolutionary internet service platform that provides high-speed WiFi connectivity through multiple strategic locations. Our platform combines cutting-edge technology with user-friendly interfaces to deliver seamless internet experiences for both individual users and businesses.
 
 ---
 
@@ -56,7 +56,7 @@ StarNetX is a revolutionary internet service platform that provides high-speed W
 
 ## 🌍 **Service Coverage**
 
-StarNetX currently operates in strategic locations across Nigeria, providing:
+Starline Networks currently operates in strategic locations across Nigeria, providing:
 - High-speed internet connectivity
 - Unlimited data plans
 - 24/7 network availability
@@ -119,7 +119,7 @@ StarNetX currently operates in strategic locations across Nigeria, providing:
 
 ---
 
-## 🌟 **Why Choose StarNetX?**
+## 🌟 **Why Choose Starline Networks?**
 
 1. **Innovation**: Cutting-edge technology and modern user experience
 2. **Reliability**: 99.9% uptime guarantee with backup systems
@@ -147,6 +147,6 @@ StarNetX currently operates in strategic locations across Nigeria, providing:
 
 ---
 
-**StarNetX** - Empowering Digital Connectivity Across Nigeria! 🌟📡
+**Starline Networks** - Empowering Digital Connectivity Across Nigeria! 🌟📡
 
 *Built with ❤️ by Binah Innovation Technologies*

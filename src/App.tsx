@@ -33,7 +33,7 @@ function AppContent() {
       <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-green-400 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-          <div className="text-white text-xl">Loading StarNetX...</div>
+          <div className="text-white text-xl">Loading Starline Networks...</div>
         </div>
       </div>
     );

@@ -3,6 +3,51 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
+// Clear all data on page refresh/reload
+if (typeof window !== 'undefined') {
+  // Check if this is a page refresh (not initial load)
+  const navigation = (window.performance as any).navigation || 
+                     (window.performance as any).getEntriesByType('navigation')[0];
+  
+  if (navigation && (navigation.type === 1 || navigation.type === 'reload')) {
+    // Clear all localStorage data
+    localStorage.clear();
+    
+    // Clear all sessionStorage data
+    sessionStorage.clear();
+    
+    // Clear all cookies
+    document.cookie.split(";").forEach((c) => {
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+    
+    // Clear IndexedDB if exists
+    if ('indexedDB' in window) {
+      indexedDB.databases().then(databases => {
+        databases.forEach(db => {
+          if (db.name) {
+            indexedDB.deleteDatabase(db.name);
+          }
+        });
+      }).catch(() => {
+        // Fallback for browsers that don't support databases()
+        const dbNames = ['supabase', 'auth', 'app-data'];
+        dbNames.forEach(name => {
+          try {
+            indexedDB.deleteDatabase(name);
+          } catch (e) {
+            console.log('Could not delete database:', name);
+          }
+        });
+      });
+    }
+    
+    console.log('Page refreshed - all data cleared');
+  }
+}
+
 // Register service worker for PWA functionality
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {

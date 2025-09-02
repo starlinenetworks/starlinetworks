@@ -113,7 +113,7 @@ New utility functions for PWA management:
 # On Chrome/Edge:
 1. Visit the website
 2. Click install icon in address bar
-3. Or go to menu > "Install StarNetX..."
+3. Or go to menu > "Install Starline Networks..."
 
 # On iOS Safari:
 1. Visit the website

@@ -1,4 +1,4 @@
--- Supabase RLS (Row Level Security) Policies for StarNetX
+-- Supabase RLS (Row Level Security) Policies for Starline Networks
 -- Run these in your Supabase SQL Editor
 
 -- ============================================
